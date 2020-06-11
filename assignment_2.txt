@@ -1,0 +1,93 @@
+function myEach(arr, callback){
+	 for(let i = 0; i < arr.length; i++)
+	 	 callback(arr[i], i, arr);
+}
+
+function map(arr, callback){
+	 let result_arr = [];
+	 for (let i = 0; i < arr.length; i++)
+	     result_arr.push(callback(arr[i], i, arr));
+	 return result_arr;
+}
+
+function myFilter(arr, callback){
+	 let result_elems = [];
+	 for (let i = 0; i < arr.length; i++){
+	     if(callback(arr[i], i, arr))
+		result_elems.push(arr[i]);
+	 }
+
+	 return result_elems;
+}
+
+function mySome(arr, callback){
+	 for (let i= 0; i < arr.length; i++)
+	     if (callback(arr[i]))
+	     	result true;
+	return false;
+}
+
+function myEvery(arr, callback){
+	 for (let i = 0; i < arr.length; i++){
+	     if (!callback(arr[i], i, arr))
+	     	result false;
+	return true;
+}
+
+function myReduce(arr, callback, initVal=null){
+	 let accum;
+	 
+	 if(initVal)
+		callback(accum, initVal, 0, arr);
+	 else
+		accum = arr[0];
+	
+	 for (let i = 1; i < arr.length; i++)
+	     callback(accum, arr[i], i, arr); 
+
+}
+
+function myIncludes(arr, valToFind, fromIndex=0){
+	 for (let i = fromIndex; i < arr.length; i++)
+	     if (arr[i] === valToFind)
+	     	return true;
+	 return false;
+	     
+}
+
+function myIndexOf(arr, valToFind, fromIndex=0){
+	 for (let i = fromIndex; i < arr.length; i ++)
+	     if (arr[i] === valToFind)
+	     	return i;
+	 return -1;
+}
+
+function myPush(arr, elem){
+	 let len = arr.length;
+	 arr[len] = elem;
+	 len++;
+	 arr.length = len;
+	 return len;
+}
+
+function myLastIndexOf(arr, valToFind, fromIndex){
+	 let lastIndex = -1;
+	 for(let i = fromIndex; i < arr.length; i++)
+	 	 if(arr[i] === valToFind)
+		 	   lastIndex = i;
+	 return lastIndex;
+}
+
+function grabKeys(obj){
+	 let keys = [];
+	 for(let i in obj)
+	 	 keys.push(i);
+	 return keys;
+}
+
+function grabValues(obj){
+	 let vals = [];
+	 for (let i in obj)
+	     vals.push(obj[i]);
+	 return vals;
+}
